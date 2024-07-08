@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science-Holiday Homework-Class XI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .question-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .question-list li {
+            margin: 10px 0;
+        }
+        .question-list a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .question-list a:hover {
+            text-decoration: underline;
+        }
+        .code-display {
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            display: none;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            text-align: right;
+            font-size: 25px;
+            color: #3cb371;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 150px;
+        }
+    </style>
+    <script>
+        function showCode(id) {
+            var codeBlocks = document.querySelectorAll('.code-display');
+            codeBlocks.forEach(function(block) {
+                block.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <img src="C:\Desktop\Anav\Anav School\LVIS\GRADE-XI-EDISON\COMPUTER SCIENCE\School Logo-New.jpg.jpg" alt="School Logo" class="logo">
+    <div class="container">
+        <h1>Computer Science-Holiday Homework-Class XI</h1>
+        <ul class="question-list">
+            <li><a href="#" onclick="showCode('code1')">1. Write code to check if the number entered is Prime or not.</a></li>
+            <li><a href="#" onclick="showCode('code2')">2. Write a program to generate Fibonacci Series.</a></li>
+            <li><a href="#" onclick="showCode('code3')">3. Write a program to check for Leap year.</a></li>
+            <li><a href="#" onclick="showCode('code4')">4. Write a program to check if the date entered is valid or not.(0/0/0 is an invalid date.)</a></li>
+            <li><a href="#" onclick="showCode('code5')">5. Write code to check if the number is Palindrome or not.</a></li>
+            <li><a href="#" onclick="showCode('code6')">6. Write a program to take a 3 digit number and display all digits of the words of that number in a different line.</a></li>
+            <li><a href="#" onclick="showCode('code7')">7. Write a program to accept numbers and show its digits.</a></li>
+            <li><a href="#" onclick="showCode('code8')">8. Write code to generate a calculator.</a></li>
+        </ul>
+
+        <div id="code1" class="code-display">
+            <strong>Code to check if the number entered is Prime or not:</strong>
+<pre>
+number = int(input("Enter a number to check if it is prime: "))
+def is_prime(num):
+    # If the number is less than or equal to 1, it is not prime
+    if num <= 1:
+        return False
+    # Check for factors from 2 to num-1
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
+if is_prime(number):
+    print(f"{number} is a prime number.")
+else:
+    print(f"{number} is not a prime number.")
+</pre>
+        </div>
+
+        <div id="code2" class="code-display">
+            <strong>Code to generate Fibonacci Series:</strong>
+<pre>
+terms = int(input("Enter the number of terms for Fibonacci series: "))
+def generate_fibonacci(n):
+    fib = [0, 1]  # Initialize the first two terms
+    for i in range(2, n):
+        fib.append(fib[i - 1] + fib[i - 2])  # Append the sum of the last two terms
+    return fib
+print("Fibonacci series:", generate_fibonacci(terms))
+</pre>
+        </div>
+
+        <div id="code3" class="code-display">
+            <strong>Code to check for Leap year:</strong>
+<pre>
+year = int(input("Enter a year to check if it is a leap year: "))
+def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            return False
+        return True
+    return False
+if is_leap_year(year):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
+</pre>
+        </div>
+
+        <div id="code4" class="code-display">
+            <strong>Code to check if the date entered is valid or not:</strong>
+<pre>
+from datetime import datetime
+
+day = int(input("Enter day: "))
+month = int(input("Enter month: "))
+year = int(input("Enter year: "))
+def is_valid_date(day, month, year):
+    try:
+        datetime(year, month, day)
+        return True
+    except ValueError:
+        return False
+if day == 0 and month == 0 and year == 0:
+    print("Invalid date (0/0/0).")
+else:
+    if is_valid_date(day, month, year):
+        print(f"The date {day}/{month}/{year} is valid.")
+    else:
+        print(f"The date {day}/{month}/{year} is invalid.")
+</pre>
+        </div>
+
+        <div id="code5" class="code-display">
+            <strong>Code to check if the number is Palindrome or not:</strong>
+<pre>
+number = int(input("Enter a number to check if it is a palindrome: "))
+def is_palindrome(num):
+    str_num = str(num)  # Convert the number to a string
+    reversed_str_num = str_num[::-1]  # Reverse the string
+    return str_num == reversed_str_num
+if is_palindrome(number):
+    print(f"{number} is a palindrome.")
+else:
+    print(f"{number} is not a palindrome.")
+</pre>
+        </div>
+
+        <div id="code6" class="code-display">
+            <strong>Code to take a 3 digit number and display all digits of the words of that number in a different line:</strong>
+<pre>
+number = int(input("Enter a 3-digit number: "))
+def display_digits(num):
+    if num < 100 or num > 999:
+        return "Number is not a 3-digit number."
+    digits = str(num)
+    return '\n'.join(digits)  # Join the digits with newline characters
+print(display_digits(number))
+</pre>
+        </div>
+
+        <div id="code7" class="code-display">
+            <strong>Code to accept numbers and show its digits:</strong>
+<pre>
+number = int(input("Enter a number: "))
+def show_digits(num):
+    return ', '.join(str(num))  # Join the digits with commas
+print("Digits:", show_digits(number))
+</pre>
+        </div>
+
+        <div id="code8" class="code-display">
+            <strong>Code to generate a calculator:</strong>
+<pre>
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+op = input("Enter an operator (+, -, *, /): ")
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return 'Error: Division by zero'
+    return a / b
+
+# Function to use the calculator
+def calculator(a, b, operator):
+    if operator == '+':
+        return add(a, b)
+    elif operator == '-':
+        return subtract(a, b)
+    elif operator == '*':
+        return multiply(a, b)
+    elif operator == '/':
+        return divide(a, b)
+    else:
+        return 'Invalid operator'
+result = calculator(num1, num2, op)
+print(f"Result: {result}")
+</pre>
+        </div>
+    </div>
+    <div class="footer">
+        Created by-<br>
+        Anav Shah<br>
+        XI-Edison<br>
+        Roll No. 3
+    </div>
+</body>
+</html>
